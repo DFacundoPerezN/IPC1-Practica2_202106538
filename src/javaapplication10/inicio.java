@@ -23,9 +23,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Faxx
  */
 public class inicio extends javax.swing.JFrame {
-static int Cont1=0,CONTdatos=0; 
+static int Cont1=0,Contdatos=0; 
 static datos datosGRA[]=new datos[1];
-static datos AUX[]=new datos[1];
+static datos aux[]=new datos[1];
 static String title;
  
     /**
@@ -33,7 +33,6 @@ static String title;
      */
     public inicio() {
         initComponents();
-         initComponents();
         buttonGroup1.add(asc);
         buttonGroup1.add(des);
         buttonGroup2.add(quick);
@@ -101,16 +100,31 @@ static String title;
         quick.setText("Quicksort");
 
         sort.setText("Bubblesort");
+        sort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortActionPerformed(evt);
+            }
+        });
 
         asc.setText("Ascendente");
+        asc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ascActionPerformed(evt);
+            }
+        });
 
         des.setText("Descendente");
+        des.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                desActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Ubicación del archivo");
 
         jLabel2.setText("Nombre de la Grafica");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 204)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,7 +137,7 @@ static String title;
             .addGap(0, 205, Short.MAX_VALUE)
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 0)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,7 +147,7 @@ static String title;
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 225, Short.MAX_VALUE)
+            .addGap(0, 177, Short.MAX_VALUE)
         );
 
         repor.setText("Reporte");
@@ -147,65 +161,65 @@ static String title;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(des)
-                    .addComponent(asc)
-                    .addComponent(sort)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jToggleButton1))
-                    .addComponent(quick)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(repor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jButton1)))
-                .addGap(166, 166, 166))
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(des)
+                            .addComponent(asc)
+                            .addComponent(sort)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jToggleButton1))
+                            .addComponent(quick)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(repor))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jButton1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton1)))
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(des)
@@ -218,8 +232,8 @@ static String title;
                         .addGap(13, 13, 13)
                         .addComponent(jToggleButton1)
                         .addGap(132, 132, 132)
-                        .addComponent(repor)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(repor)))
+                .addContainerGap())
         );
 
         pack();
@@ -234,11 +248,12 @@ JFileChooser chooser = new JFileChooser();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- String leerruta=jTextField1.getText().trim();
- 
+
+        String leerruta=jTextField1.getText().trim();
+         
          if (jTextField2.getText().equals("")) {
-             JOptionPane.showMessageDialog(null, "Debe llenar todos los Campos");
-         } else {{
+             JOptionPane.showMessageDialog(null, "Debe llenar todos los Campos");//Mensaje por si faltan el nombre de la grafica
+         } else {
            try {
                     
                     FileReader fr=new FileReader(leerruta);
@@ -249,10 +264,10 @@ JFileChooser chooser = new JFileChooser();
                        Cont1++;  
                     }
                     
-                    System.out.println("el contador es :"+Cont1);
+                    System.out.println("La cantidad de valores es:"+ Cont1);
                     datosGRA=new datos[Cont1];
-                    AUX=new datos[Cont1];
-                    System.out.println("se seteo el tamaño "+datosGRA.length);
+                    aux=new datos[Cont1];
+                    System.out.println("Tamaño determinado: "+datosGRA.length);
                     
                     FileReader LR=new FileReader(leerruta);
                    BufferedReader bF=new BufferedReader(LR);
@@ -262,9 +277,9 @@ JFileChooser chooser = new JFileChooser();
                        String [] datos2=linea2.split(",");
                        String CATEGO=datos2[0];
                        String CANTI=datos2[1];
-                      datosGRA[CONTdatos]=new datos(CATEGO, CANTI);
-                      AUX[CONTdatos]=new datos(CATEGO, CANTI);
-                       CONTdatos++;   
+                      datosGRA[Contdatos]=new datos(CATEGO, CANTI);
+                      aux[Contdatos]=new datos(CATEGO, CANTI);
+                       Contdatos++;         
                       
                     }
         
@@ -273,12 +288,12 @@ JFileChooser chooser = new JFileChooser();
                 }
                 
                  for (int i = 0; i <datosGRA.length-1; i++) {
-                        System.out.println("categoria:"+ datosGRA[i].getcategoria());
-                        System.out.println("cantidad:"+ datosGRA[i].getcantidad());
-                        System.out.println("************************************");
+                        System.out.println("Categoria:"+ datosGRA[i].getcategoria());
+                        System.out.println("Cantidad:"+ datosGRA[i].getcantidad());
+                        System.out.println("-                                      -");
                     }
-                 System.out.println("el segundo contador es: "+CONTdatos);
-  //BUB();
+                 System.out.println("El segundo contador es: "+Contdatos);
+  
    JFreeChart barras=null;
         DefaultCategoryDataset datos=new DefaultCategoryDataset();
        String Y =datosGRA[0].getcantidad();
@@ -306,34 +321,242 @@ JFileChooser chooser = new JFileChooser();
         } catch (Exception e) {
         }
          }
-                
-       }
-    }                                   
-
-   
+    }
     private void ordActionPerformed(java.awt.event.ActionEvent evt) {                                    
+       //se
+       // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        //agregar ifs con el grupo de botones
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void reporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporActionPerformed
+        String metodo="";
+        if(sort.isSelected()){
+        metodo = "Bubblesort";}
+        else if(quick.isSelected()){
+        metodo = "Quicksort";}
+        
+        String orden="";
+        if(asc.isSelected()){
+        orden = "Ascendente";}
+        else if(quick.isSelected()){
+        orden = "Descendente";}
+        try {
+
+            String ruta = jTextField2.getText()+".html";
+            PrintWriter writer = new PrintWriter(ruta, "UTF-8");
+            writer.println("<!DOCTYPE HTML>");
+            writer.println("<html>");
+            writer.println("<head>");
+            writer.println("<meta charset= " + " utf-8 " + " > ");
+            writer.println("<title>Reporte: datos </title>");
+
+            writer.println("</head>");
+
+            writer.println("<body bgcolor= " + " gray " + "text=" + "white" + ">");
+
+            writer.println("<h1 "+ " align= " + "center" + ">" + "Reporte de datos</h1>");
+
+            writer.println("<h2 "+ " align= " + "right" + ">" + " Nombre: Diego Facundo Pérez Nicolau,   Carnet: 202106538</h2>");
+            writer.println("<hr "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
+            writer.println("<br>");
+
+            
+            writer.println("<pre>"+"  Metodo de Ordenamiento : "+ metodo+ "               Tiempo :"+jTextField2.getText() + 
+                    "               Velocidad : "+ jTextField2.getText()+ "                Movimientos :"+Contdatos + "               Orden : "+ orden);
+            writer.println("<br>");
+            writer.println("<hr "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
+
+            if (jTextField2.getText().equalsIgnoreCase("ascendente")) {
+                String CatminA = datosGRA[1].getcantidad();
+                String CantminA = datosGRA[1].getcategoria();
+                String CatmaxA = datosGRA[Contdatos - 1].getcantidad();
+                String CantmaxA = datosGRA[Contdatos - 1].getcategoria();
+
+                writer.println("<div>");
+                writer.println("<div style='float: left; margin: 0px 200px 0px 300px; padding: 10px; text-align: left; '>");
+                writer.println("<table BORDER WIDTH=180% >");
+                writer.println("<tr>");
+                writer.println("<td>Dato menor</td>");
+                writer.println("</tr>");
+                writer.println("<tr>");
+                writer.println("<td>");
+                writer.println("<table>");
+                writer.println("<tr>");
+                writer.println("<td>"+CantminA+"</td>");
+                writer.println("<td>"+CatminA+"</td>");
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</td>");
+
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</div>");
+                writer.println("<div style='float: right; margin: -20px 400px 300px 10px; padding: 10px; text-align: left; '>");
+                writer.println("<table BORDER WIDTH=180%>");
+                writer.println("<tr>");
+                writer.println("<td>Dato mayor</td>");
+                writer.println("</tr>");
+                writer.println("<tr><td>");
+                writer.println("<table >");
+                writer.println("<tr>");
+                writer.println("<td>"+CantmaxA+"</td>");
+                writer.println("<td>"+CatmaxA+"</td>");
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</td>");
+
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</div>");
+                writer.println("</div>");
+
+                writer.println("<br>");
+
+            } else {
+                String CatminD= datosGRA[Contdatos-1].getcantidad();
+                String CantminD=datosGRA[Contdatos-1].getcategoria();
+                String CatmaxD= datosGRA[1].getcantidad();
+                String CantmaxD=datosGRA[1].getcategoria();
+                writer.println("<div>");
+                writer.println("<div style='float: left; margin: 0px 200px 0px 300px; padding: 10px; text-align: left; '>");
+                writer.println("<table BORDER WIDTH=180% >");
+                writer.println("<tr>");
+                writer.println("<td>Dato menor</td>");
+                writer.println("</tr>");
+                writer.println("<tr>");
+                writer.println("<td>");
+                writer.println("<table>");
+                writer.println("<tr>");
+                writer.println("<td>"+CantminD+"</td>");
+                writer.println("<td>"+CatminD+"</td>");
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</td>");
+
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</div>");
+                writer.println("<div style='float: right; margin: -20px 400px 300px 10px; padding: 10px; text-align: left; '>");
+                writer.println("<table BORDER WIDTH=180%>");
+                writer.println("<tr>");
+                writer.println("<td>Dato mayor</td>");
+                writer.println("</tr>");
+                writer.println("<tr><td>");
+                writer.println("<table>");
+                writer.println("<tr>");
+                writer.println("<td>"+CantmaxD+"</td>");
+                writer.println("<td>"+CatmaxD+"</td>");
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</td>");
+
+                writer.println("</tr>");
+                writer.println("</table>");
+                writer.println("</div>");
+                writer.println("</div>");
+            }
+
+            writer.println("<hr "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
+            writer.println("<br>");
+            writer.println("<br>");
+            writer.print("<div "+ "align =" + "center" + ">");
+            writer.print(" <img " + " src= "+"inicial.png" + ">");
+            writer.print("</div>");
+            writer.println("<br>");
+
+            writer.println("<h1>Datos sin ordenar :</h1>");
+            writer.println("<div style= " + " text-align:center; " + ">");
+            writer.println(" <table border= " + " 2 " + " width= " + " 50% " + " > ");
+            writer.println("<thead>");
+            writer.println("<tr>");
+            writer.println("<th>Categoria</th>");
+            writer.println("<th>Cantidad</th>");
+            writer.println("</tr>");
+            writer.println("</thead>");
+            writer.println("<tbody>	");
+
+            for (int i = 0; i < Contdatos; i++) {
+                writer.println("<tr>");
+                String categoria = aux[i].getcategoria();
+                writer.println("<td>" + categoria + "</td>");
+
+                String cantidad = aux[i].getcantidad();
+                writer.println("<td>" + cantidad + "</td>");
+
+                writer.println("</tr>");
+            }
+
+            writer.println("</tbody>");
+
+            writer.println("</table>");
+            writer.println("</div>");
+
+            writer.println("<hr "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
+            writer.println("<br>");
+
+            writer.println("<h1>Datos ordenados : </h1>");
+            writer.println("<div style= " + " text-align: center; " + " > ");
+            writer.println(" <table border= " + "2" + " width= " + " 50% " + ">");
+            writer.println("<thead>");
+            writer.println("<tr>");
+            writer.println("<th>Categoria</th>");
+            writer.println("<th>Cantidad</th>");
+            writer.println("</tr>");
+            writer.println("</thead>");
+            writer.println("<tbody>	");
+            for (int i = 0; i < Contdatos; i++) {
+                writer.println("<tr>");
+                String categoria = datosGRA[i].getcategoria();
+                writer.println("<td>" + categoria + "</td>");
+
+                String cantidad = datosGRA[i].getcantidad();
+                writer.println("<td>" + cantidad + "</td>");
+
+                writer.println("</tr>");
+            }
+            writer.println("</tbody>");
+
+            writer.println("</table>");
+            writer.println("</div>");
+
+            writer.println("<br>");
+
+            writer.println("<br>");
+            writer.print("<div "+ "align =" + "center" + ">");
+            writer.print(" <img " + " src= "+"FINAL.png" + ">");
+            writer.print("</div>");
+            writer.println("<br>");
+
+            writer.println("</body>");
+            writer.println("</html>");
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Se creó Reporte en la carpeta");
+        } catch (Exception e2) {
+            e2.getStackTrace();
+        }
+    }//GEN-LAST:event_reporActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+      
         if(asc.isSelected() && sort.isSelected()){
             String auxCAT;
 String auxCANT;
-        //APLICANDO EL ORDENAMIENTO BURBUJA
-        for (int i = 1; i < (CONTdatos - 1); i++) {
-            for (int j = 1; j < (CONTdatos - 1); j++) {
+       
+        for (int i = 1; i < (Contdatos - 1); i++) {
+            for (int j = 1; j < (Contdatos - 1); j++) {
                 float num1=Float.parseFloat(datosGRA[j].getcantidad());
                 float num2=Float.parseFloat(datosGRA[j + 1].getcantidad());
                 if (num1 > num2) {
-                    //OBTENIENDO VALORES Y GUARDANDOLOS
+                    
                     auxCANT = datosGRA[j].getcantidad();
                     auxCAT = datosGRA[j].getcategoria();
-                    
-                    //SETEANDO LA POSICION ACTUAL EL VALOR  DE LA POSICION SIGUIENTE
                     
                     datosGRA[j].setcantidad(datosGRA[j + 1].getcantidad());
                     datosGRA[j].setcategoria(datosGRA[j + 1].getcategoria());
                    
-                    
-                    //SETEANDO LA POSICION SIGUIENTE CON LA POSICION ACTUAL
                     datosGRA[j + 1].setcantidad(auxCANT);
                     datosGRA[j + 1].setcategoria(auxCAT);
                    
@@ -342,13 +565,13 @@ String auxCANT;
         }
  System.out.println("datos ordenados por su cantidad: ");
         System.out.println("                              ");
-        for (int i =0; i<CONTdatos; i++) {
+        for (int i =0; i<Contdatos; i++) {
             System.out.println(" su cantidad: " + datosGRA[i].getcantidad());
             System.out.println(" su categoria: " + datosGRA[i].getcategoria());
            
             System.out.println("                                     ");
         }
-        //BUB();
+        
    JFreeChart barras=null;
         DefaultCategoryDataset datos=new DefaultCategoryDataset();
        String Y =datosGRA[0].getcantidad();
@@ -360,7 +583,7 @@ String auxCANT;
         datos.addValue(cantidad, "", categoria);
     }
       
-       barras=ChartFactory.createBarChart(title, X, Y, datos, PlotOrientation.VERTICAL, true,true,false);
+       barras=ChartFactory.createBarChart3D(title, X, Y, datos, PlotOrientation.VERTICAL, true,true,false);
       
        ChartPanel panel = new ChartPanel(barras);
        panel.setPreferredSize(new Dimension(400,200));
@@ -378,37 +601,35 @@ String auxCANT;
         }
         else if (des.isSelected() && sort.isSelected()){
              String auxCAT;
-String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
-            for (int j = 1; j < (CONTdatos - 1); j++) {
+String auxCANT;      for (int i = 1; i < (Contdatos - 1); i++) {
+            for (int j = 1; j < (Contdatos - 1); j++) {
                 float num1=Float.parseFloat(datosGRA[j].getcantidad());
                 float num2=Float.parseFloat(datosGRA[j + 1].getcantidad());
                 if (num1 < num2) {
-                    //OBTENIENDO VALORES Y GUARDANDOLOS
+
                     auxCANT = datosGRA[j].getcantidad();
                     auxCAT = datosGRA[j].getcategoria();
                     
-                    //SETEANDO LA POSICION ACTUAL EL VALOR  DE LA POSICION SIGUIENTE
                     
                     datosGRA[j].setcantidad(datosGRA[j + 1].getcantidad());
                     datosGRA[j].setcategoria(datosGRA[j + 1].getcategoria());
                    
-                    
-                    //SETEANDO LA POSICION SIGUIENTE CON LA POSICION ACTUAL
+
                     datosGRA[j + 1].setcantidad(auxCANT);
                     datosGRA[j + 1].setcategoria(auxCAT);
                    
                 }
             }
         }
- System.out.println("datos ordenados por su cantidad: ");
+ System.out.println("Datos ordenados por su cantidad: ");
         System.out.println("                                    ");
-        for (int i =0; i<CONTdatos; i++) {
-            System.out.println(" cantidad: " + datosGRA[i].getcantidad());
-            System.out.println(" categoria: " + datosGRA[i].getcategoria());
+        for (int i =0; i<Contdatos; i++) {
+            System.out.println(" Cantidad: " + datosGRA[i].getcantidad());
+            System.out.println(" Categoria: " + datosGRA[i].getcategoria());
            
             System.out.println("                                  ");
         }
-        //BUB();
+        
    JFreeChart barras=null;
         DefaultCategoryDataset datos=new DefaultCategoryDataset();
        String Y =datosGRA[0].getcantidad();
@@ -439,12 +660,12 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
         else if(asc.isSelected() && quick.isSelected()){
             int salto, j, k;
             float auxcant, auxcant2;
-            String AUXCANT;
-            String AUXCAT;
+            String auxCANT;
+            String auxCAT;
 
-            salto = ((CONTdatos - 1) / 2);
+            salto = ((Contdatos - 1) / 2);
             while (salto > 0) {
-                for (int i = salto + 1; i < CONTdatos; i++) {
+                for (int i = salto + 1; i < Contdatos; i++) {
                     j = (i - salto);
                     while (j >= 1) {
 
@@ -454,14 +675,14 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
                         if (auxcant <= auxcant2) {
                             break;
                         } else {
-                            AUXCANT = datosGRA[j].getcantidad();
-                            AUXCAT = datosGRA[j].getcategoria();
+                            auxCANT = datosGRA[j].getcantidad();
+                            auxCAT = datosGRA[j].getcategoria();
 
                             datosGRA[j].setcantidad(datosGRA[j + salto].getcantidad());
                             datosGRA[j].setcategoria(datosGRA[j + salto].getcategoria());
 
-                            datosGRA[j + salto].setcantidad(AUXCANT);
-                            datosGRA[j + salto].setcategoria(AUXCAT);
+                            datosGRA[j + salto].setcantidad(auxCANT);
+                            datosGRA[j + salto].setcategoria(auxCAT);
                             j = j - salto;
                         }
 
@@ -471,12 +692,12 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
             }
 
             for (int i = 0; i < datosGRA.length - 1; i++) {
-                System.out.println(" su  cantidad: " + datosGRA[i].getcantidad());
-                System.out.println(" su categoria: " + datosGRA[i].getcategoria());
+                System.out.println(" su  Cantidad: " + datosGRA[i].getcantidad());
+                System.out.println(" su Categoria: " + datosGRA[i].getcategoria());
                 System.out.println("                                  ");
 
             }
-             //BUB();
+             
    JFreeChart barras=null;
         DefaultCategoryDataset datos=new DefaultCategoryDataset();
        String Y =datosGRA[0].getcantidad();
@@ -507,12 +728,12 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
         else if(des.isSelected() && quick.isSelected()){
             int salto, j;
             float auxcant, auxcant2;
-            String AUXCANT;
-            String AUXCAT;
+            String auxCANT;
+            String auxCAT;
 
-            salto = ((CONTdatos - 1) / 2);
+            salto = ((Contdatos- 1) / 2);
             while (salto > 0) {
-                for (int i = salto + 1; i < CONTdatos; i++) {
+                for (int i = salto + 1; i < Contdatos; i++) {
                     j = (i - salto);
                     while (j >= 1) {
 
@@ -523,14 +744,14 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
                             break;
                         } else {
 
-                            AUXCANT = datosGRA[j].getcantidad();
-                            AUXCAT = datosGRA[j].getcategoria();
+                            auxCANT = datosGRA[j].getcantidad();
+                            auxCAT = datosGRA[j].getcategoria();
 
                             datosGRA[j].setcantidad(datosGRA[j + salto].getcantidad());
                             datosGRA[j].setcategoria(datosGRA[j + salto].getcategoria());
 
-                            datosGRA[j + salto].setcantidad(AUXCANT);
-                            datosGRA[j + salto].setcategoria(AUXCAT);
+                            datosGRA[j + salto].setcantidad(auxCANT);
+                            datosGRA[j + salto].setcategoria(auxCAT);
                             j = j - salto;
                         }
 
@@ -540,8 +761,8 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
             }
 
             for (int i = 0; i < datosGRA.length - 1; i++) {
-                System.out.println(" su cantidad: " + datosGRA[i].getcantidad());
-                System.out.println(" su categoria: " + datosGRA[i].getcategoria());
+                System.out.println(" u Cantidad: " + datosGRA[i].getcantidad());
+                System.out.println(" su Categoria: " + datosGRA[i].getcategoria());
                 System.out.println("                                     ");
 
             }
@@ -573,214 +794,19 @@ String auxCANT;      for (int i = 1; i < (CONTdatos - 1); i++) {
         } catch (Exception e) {
         }
         }
-       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void reporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            String ruta = "REPORTE_USAC_DATA_PLOTTER.html";
-            PrintWriter writer = new PrintWriter(ruta, "UTF-8");
-            writer.println("<!DOCTYPE HTML>");
-            writer.println("<html>");
-            writer.println("<head>");
-            writer.println("<meta charset= " + " utf-8 " + " > ");
-            writer.println("<title>REPORTE DE datos </title>");
-
-            writer.println("</head>");
-
-            writer.println("<body bgcolor= " + " #FF5733 " + "text=" + "white" + ">");
-
-            writer.println("<H1 "+ " align= " + "center" + ">" + "Juan Pedro Valle Lema</H1>");
-
-            writer.println("<H2 "+ " align= " + "center" + ">" + "202101648</H2>");
-            writer.println("<HR "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
-            writer.println("<br>");
-
-            writer.println("<pre>"+"  ALGORITMO : "+ jTextField2.getText()+ "                          TIEMPO :"+jTextField2.getText() +"</pre>");
-            writer.println("<pre>"+"  VELOCIDAD : "+ jTextField2.getText()+ "                          PASOS  :"+jTextField2.getText() +"</pre>");
-            writer.println("<pre>"+"  ORDEN     : "+ jTextField2.getText());
-            writer.println("<br>");
-            writer.println("<HR "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
-
-            if (jTextField2.getText().equalsIgnoreCase("ascendente")) {
-                String CatminA = datosGRA[1].getcantidad();
-                String CantminA = datosGRA[1].getcategoria();
-                String CatmaxA = datosGRA[CONTdatos - 1].getcantidad();
-                String CantmaxA = datosGRA[CONTdatos - 1].getcategoria();
-
-                writer.println("<div>");
-                writer.println("<div style='float: left; margin: 0px 200px 0px 300px; padding: 10px; text-align: left; '>");
-                writer.println("<table BORDER WIDTH=200% >");
-                writer.println("<tr>");
-                writer.println("<td>DATO MINIMO</td>");
-                writer.println("</tr>");
-                writer.println("<tr>");
-                writer.println("<td>");
-                writer.println("<table BORDER WIDTH=100%>");
-                writer.println("<tr>");
-                writer.println("<td>"+CantminA+"</td>");
-                writer.println("<td>"+CatminA+"</td>");
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</td>");
-
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</div>");
-                writer.println("<div style='float: right; margin: -20px 400px 0px 10px; padding: 10px; text-align: left; '>");
-                writer.println("<table BORDER WIDTH=200% >");
-                writer.println("<tr>");
-                writer.println("<td>DATO MAX</td>");
-                writer.println("</tr>");
-                writer.println("<tr><td>");
-                writer.println("<table BORDER WIDTH=100%>");
-                writer.println("<tr>");
-                writer.println("<td>"+CantmaxA+"</td>");
-                writer.println("<td>"+CatmaxA+"</td>");
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</td>");
-
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</div>");
-                writer.println("</div>");
-
-                writer.println("<br>");
-
-            } else {
-                String CatminD= datosGRA[CONTdatos-1].getcantidad();
-                String CantminD=datosGRA[CONTdatos-1].getcategoria();
-                String CatmaxD= datosGRA[1].getcantidad();
-                String CantmaxD=datosGRA[1].getcategoria();
-                writer.println("<div>");
-                writer.println("<div style='float: left; margin: 0px 200px 0px 300px; padding: 10px; text-align: left; '>");
-                writer.println("<table BORDER WIDTH=200% >");
-                writer.println("<tr>");
-                writer.println("<td>DATO MINIMO</td>");
-                writer.println("</tr>");
-                writer.println("<tr>");
-                writer.println("<td>");
-                writer.println("<table BORDER WIDTH=100%>");
-                writer.println("<tr>");
-                writer.println("<td>"+CantminD+"</td>");
-                writer.println("<td>"+CatminD+"</td>");
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</td>");
-
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</div>");
-                writer.println("<div style='float: right; margin: -20px 400px 0px 10px; padding: 10px; text-align: left; '>");
-                writer.println("<table BORDER WIDTH=200% >");
-                writer.println("<tr>");
-                writer.println("<td>DATO MAX</td>");
-                writer.println("</tr>");
-                writer.println("<tr><td>");
-                writer.println("<table BORDER WIDTH=100%>");
-                writer.println("<tr>");
-                writer.println("<td>"+CantmaxD+"</td>");
-                writer.println("<td>"+CatmaxD+"</td>");
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</td>");
-
-                writer.println("</tr>");
-                writer.println("</table>");
-                writer.println("</div>");
-                writer.println("</div>");
-            }
-
-            writer.println("<HR "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
-            writer.println("<br>");
-            writer.println("<br>");
-            writer.print("<div "+ "align =" + "center" + ">");
-            writer.print(" <img " + " src= "+"inicial.png" + ">");
-            writer.print("</div>");
-            writer.println("<br>");
-
-            writer.println("<h1>datos DESordenados :</h1>");
-            writer.println("<div style= " + " text-align:center; " + ">");
-            writer.println(" <table border= " + " 2 " + " width= " + " 50% " + " > ");
-            writer.println("<thead>");
-            writer.println("<tr>");
-            writer.println("<th>Categoria</th>");
-            writer.println("<th>cantidad</th>");
-            writer.println("</tr>");
-            writer.println("</thead>");
-            writer.println("<tbody>	");
-
-            for (int i = 0; i < CONTdatos; i++) {
-                writer.println("<tr>");
-                String categoria = AUX[i].getcategoria();
-                writer.println("<td>" + categoria + "</td>");
-
-                String cantidad = AUX[i].getcantidad();
-                writer.println("<td>" + cantidad + "</td>");
-
-                writer.println("</tr>");
-            }
-
-            writer.println("</tbody>");
-
-            writer.println("</table>");
-            writer.println("</div>");
-
-            writer.println("<HR "+ "align = " + " center" + " size = " + "4" + " width ="+ " 100% " + "color= " +" White" + " noshade>");
-            writer.println("<br>");
-
-            writer.println("<h1>datos ordenados : </h1>");
-            writer.println("<div style= " + " text-align: center; " + " > ");
-            writer.println(" <table border= " + "2" + " width= " + " 50% " + ">");
-            writer.println("<thead>");
-            writer.println("<tr>");
-            writer.println("<th>Categoria</th>");
-            writer.println("<th>cantidad</th>");
-            writer.println("</tr>");
-            writer.println("</thead>");
-            writer.println("<tbody>	");
-            for (int i = 0; i < CONTdatos; i++) {
-                writer.println("<tr>");
-                String categoria = datosGRA[i].getcategoria();
-                writer.println("<td>" + categoria + "</td>");
-
-                String cantidad = datosGRA[i].getcantidad();
-                writer.println("<td>" + cantidad + "</td>");
-
-                writer.println("</tr>");
-            }
-            writer.println("</tbody>");
-
-            writer.println("</table>");
-            writer.println("</div>");
-
-            writer.println("<br>");
-
-            writer.println("<br>");
-            writer.print("<div "+ "align =" + "center" + ">");
-            writer.print(" <img " + " src= "+"FINAL.png" + ">");
-            writer.print("</div>");
-            writer.println("<br>");
-
-            writer.println("</body>");
-            writer.println("</html>");
-            writer.close();
-            JOptionPane.showMessageDialog(null, "Se creó correctamente");
-        } catch (Exception e2) {
-            e2.getStackTrace();
-        }
-    }//GEN-LAST:event_reporActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void desActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_desActionPerformed
+
+    private void ascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ascActionPerformed
+
+    private void sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortActionPerformed
 
     /**
      * @param args the command line arguments
